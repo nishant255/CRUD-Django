@@ -3,49 +3,90 @@
 
 {% block content %}
 
-<h1 class="page-header">Persons</h1>
-  <table class="table" id="person-table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>UserName</th>
-        <th>FirstName</th>
-        <th>LastName</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for p in person%}
+    <h1 class="page-header">Persons</h1>
+    <table class="table" id="person-table">
+        <thead>
         <tr>
-          <td>{{ p.id }}</td>
-          <td>{{ p.userName }}</td>
-          <td>{{ p.firstName }}</td>
-          <td>{{ p.lastName }}</td>
-          <td>{{ p.email}}</td>
+            <th>#</th>
+            <th>UserName</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
         </tr>
-      {% empty %}
-        <tr>
-          <td colspan="7" class="text-center bg-warning">No Person</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        </thead>
+        <tbody>
+        {% for p in person %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.userName }}</td>
+                <td>{{ p.firstName }}</td>
+                <td>{{ p.lastName }}</td>
+                <td>{{ p.email }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="7" class="text-center bg-warning">No Person</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-  <div class="container">
+    <div class="container">
+        <button type="button" class="btn btn-primary js-get">GET</button>
+        <button type="button" class="btn btn-primary js-post">POST</button>
+        <button type="button" class="btn btn-primary js-put">PUT</button>
+        <button type="button" class="btn btn-primary js-delete">DELETE</button>
+    </div>
 
-      <button type="button" class="btn btn-primary js-get">GET</button>
-      <button type="button" class="btn btn-primary js-post">POST</button>
-      <button type="button" class="btn btn-primary js-put">PUT</button>
-      <button type="button" class="btn btn-primary js-delete">DELETE</button>
-
-  </div>
-
-
-    <div class="modal fade" id="modal-book">
-      <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="req-res-container">
+        <div class="get">
+            <div class="req-get">
+                <p>Request</p>
+                <form method="get">
+                    <label>ID: <input type="text"/></label>
+                    <input type="submit">
+                </form>
+            </div>
+            <div class="res-get">
+                <p>Response</p>
+            </div>
         </div>
-      </div>
+        <div class="post">
+            <div class="req-post">
+                <p>Request</p>
+                <form method="get">
+                    <label>ID: <input type="text"/></label>
+                    <input type="submit">
+                </form>
+            </div>
+            <div class="res-post">
+                <p>Response</p>
+            </div>
+        </div>
+        <div class="put">
+            <div class="req-put">
+                <p>Request</p>
+                <form method="get">
+                    <label>ID: <input type="text"/></label>
+                    <input type="submit">
+                </form>
+            </div>
+            <div class="res-put">
+                <p>Response</p>
+            </div>
+        </div>
+        <div class="delete">
+            <div class="req-delete">
+                <p>Request</p>
+                <form method="get">
+                    <label>ID: <input type="text"/></label>
+                    <input type="submit">
+                </form>
+            </div>
+            <div class="res-delete">
+                <p>Response</p>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
