@@ -1,0 +1,21 @@
+{% load widget_tweaks %}
+
+<form method="post" action="{% url 'person_post' %}" class="js-person-create-form">
+  {% csrf_token %}
+  <h4 class="modal-title">Create a new person</h4>
+  <div class="modal-body">
+    {% for field in form %}
+      <div class="form-group{% if field.errors %} has-error{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {% render_field field class="form-control" %}
+        {% for error in field.errors %}
+          <p class="help-block">{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="modal-footer">
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
