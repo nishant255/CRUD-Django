@@ -1,5 +1,4 @@
 {% extends 'CrudApp/base.html' %}
-{% load static %}
 
 {% block content %}
 
@@ -42,25 +41,40 @@
         <div class="get">
             <div class="req-get">
                 <p>Request</p>
-                <form method="get">
-                    <label>ID: <input type="text"/></label>
+                <form method="get" id="get-form">
+                    <label>ID: <input type="text" name="id"/></label>
                     <input type="submit">
                 </form>
             </div>
             <div class="res-get">
                 <p>Response</p>
+                <div class="result">
+                    <form class="result-get">
+                        Username: <input disabled class="res-get-userName"><br>
+                        First name: <input disabled class="res-get-firstName"><br>
+                        Last Name: <input disabled class="res-get-lastName"><br>
+                        Email: <input disabled class="res-get-email"><br>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="post">
             <div class="req-post">
                 <p>Request</p>
-                <form method="get">
-                    <label>ID: <input type="text"/></label>
+                <form method="post" class="post-form">
+                    {% csrf_token %}
+                    <label>Username: <input type="text" name="user-name"/></label><br>
+                    <label>Firstname: <input type="text" name="first-name"/></label><br>
+                    <label>last: <input type="text" name="last-name"/></label><br>
+                    <label>email: <input type="text" name="email"/></label><br>
                     <input type="submit">
                 </form>
             </div>
             <div class="res-post">
                 <p>Response</p>
+                <div class="post-result">
+
+                </div>
             </div>
         </div>
         <div class="put">
@@ -88,8 +102,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block javascript %}
-    <script src="{% static 'CrudApp/js/persons.js' %}"></script>
 {% endblock %}

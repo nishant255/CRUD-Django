@@ -73,5 +73,5 @@ fabric.properties
 # See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
 
 .idea/
-
+db.sqlite3/
 # End of https://www.gitignore.io/api/django,pycharm+all
